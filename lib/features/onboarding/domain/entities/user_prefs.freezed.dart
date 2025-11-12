@@ -12,7 +12,8 @@ part of 'user_prefs.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 UserPrefs _$UserPrefsFromJson(Map<String, dynamic> json) {
   return _UserPrefs.fromJson(json);
@@ -54,15 +55,16 @@ class _$UserPrefsCopyWithImpl<$Res, $Val extends UserPrefs>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? hasCompletedOnboarding = null,
-  }) {
-    return _then(_value.copyWith(
-      hasCompletedOnboarding: null == hasCompletedOnboarding
-          ? _value.hasCompletedOnboarding
-          : hasCompletedOnboarding // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  $Res call({Object? hasCompletedOnboarding = null}) {
+    return _then(
+      _value.copyWith(
+            hasCompletedOnboarding: null == hasCompletedOnboarding
+                ? _value.hasCompletedOnboarding
+                : hasCompletedOnboarding // ignore: cast_nullable_to_non_nullable
+                      as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -70,8 +72,9 @@ class _$UserPrefsCopyWithImpl<$Res, $Val extends UserPrefs>
 abstract class _$$UserPrefsImplCopyWith<$Res>
     implements $UserPrefsCopyWith<$Res> {
   factory _$$UserPrefsImplCopyWith(
-          _$UserPrefsImpl value, $Res Function(_$UserPrefsImpl) then) =
-      __$$UserPrefsImplCopyWithImpl<$Res>;
+    _$UserPrefsImpl value,
+    $Res Function(_$UserPrefsImpl) then,
+  ) = __$$UserPrefsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool hasCompletedOnboarding});
@@ -82,22 +85,23 @@ class __$$UserPrefsImplCopyWithImpl<$Res>
     extends _$UserPrefsCopyWithImpl<$Res, _$UserPrefsImpl>
     implements _$$UserPrefsImplCopyWith<$Res> {
   __$$UserPrefsImplCopyWithImpl(
-      _$UserPrefsImpl _value, $Res Function(_$UserPrefsImpl) _then)
-      : super(_value, _then);
+    _$UserPrefsImpl _value,
+    $Res Function(_$UserPrefsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of UserPrefs
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? hasCompletedOnboarding = null,
-  }) {
-    return _then(_$UserPrefsImpl(
-      hasCompletedOnboarding: null == hasCompletedOnboarding
-          ? _value.hasCompletedOnboarding
-          : hasCompletedOnboarding // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+  $Res call({Object? hasCompletedOnboarding = null}) {
+    return _then(
+      _$UserPrefsImpl(
+        hasCompletedOnboarding: null == hasCompletedOnboarding
+            ? _value.hasCompletedOnboarding
+            : hasCompletedOnboarding // ignore: cast_nullable_to_non_nullable
+                  as bool,
+      ),
+    );
   }
 }
 
@@ -141,9 +145,7 @@ class _$UserPrefsImpl implements _UserPrefs {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserPrefsImplToJson(
-      this,
-    );
+    return _$$UserPrefsImplToJson(this);
   }
 }
 

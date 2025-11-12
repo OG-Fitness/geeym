@@ -23,26 +23,28 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 extension GetItInjectableX on _i174.GetIt {
+  // initializes the registration of main-scope dependencies inside of GetIt
   _i174.GetIt init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) {
-    final gh = _i526.GetItHelper(
-      this,
-      environment,
-      environmentFilter,
-    );
+    final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.lazySingleton<_i868.UserPrefsLocal>(() => _i868.UserPrefsLocal());
     gh.lazySingleton<_i996.UserPrefsRepository>(
-        () => _i307.UserPrefsRepositoryImpl(gh<_i868.UserPrefsLocal>()));
+      () => _i307.UserPrefsRepositoryImpl(gh<_i868.UserPrefsLocal>()),
+    );
     gh.lazySingleton<_i590.SetHasCompletedOnboarding>(
-        () => _i590.SetHasCompletedOnboarding(gh<_i996.UserPrefsRepository>()));
+      () => _i590.SetHasCompletedOnboarding(gh<_i996.UserPrefsRepository>()),
+    );
     gh.lazySingleton<_i1035.GetUserPrefs>(
-        () => _i1035.GetUserPrefs(gh<_i996.UserPrefsRepository>()));
-    gh.lazySingleton<_OnboardingController>(() => _OnboardingController(
-          gh<_i1035.GetUserPrefs>(),
-          gh<_i590.SetHasCompletedOnboarding>(),
-        ));
+      () => _i1035.GetUserPrefs(gh<_i996.UserPrefsRepository>()),
+    );
+    gh.lazySingleton<_OnboardingController>(
+      () => _OnboardingController(
+        gh<_i1035.GetUserPrefs>(),
+        gh<_i590.SetHasCompletedOnboarding>(),
+      ),
+    );
     return this;
   }
 }
